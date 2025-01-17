@@ -23,20 +23,16 @@ public class PrimeNumberActivity extends AppCompatActivity {
 
         // Duyệt qua các phần tử trong ArrayList
         for (int num : numbers) {
-            if (isPrime(num)) {
-                Log.d("Prime Number", num + " là số nguyên tố");
+            if (isOddOrEven(num)) {
+                Log.d("Even Number", num + " là số chẵn");
+            } else {
+                Log.d("Odd Number", num + " là số lẻ");
             }
         }
     }
 
     // Phương thức kiểm tra số nguyên tố
-    private boolean isPrime(int num) {
-        if (num <= 1) return false;
-        for (int i = 2; i <= Math.sqrt(num); i++) {
-            if (num % i == 0) {
-                return false;
-            }
-        }
-        return true;
+    private boolean isOddOrEven(int num) {
+        return num%2==0;
     }
 }

@@ -32,39 +32,19 @@ public class PerfectSquareActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lấy số phần tử từ EditText
+                // Lấy chuỗi từ EditText
                 String input = editText.getText().toString();
                 if (input.isEmpty()) {
-                    Toast.makeText(PerfectSquareActivity.this, "Vui lòng nhập số phần tử", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PerfectSquareActivity.this, "Vui lòng nhập một chuỗi", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                int size = Integer.parseInt(input);
-                ArrayList<Integer> numbers = new ArrayList<>();
+                // Đảo ngược chuỗi
+                String reversedString = new StringBuilder(input).reverse().toString();
 
-                // Tạo mảng số từ 1 đến size
-                for (int i = 1; i <= size; i++) {
-                    numbers.add(i);
-                }
-
-                // Kiểm tra số chính phương và hiển thị
-                StringBuilder result = new StringBuilder("Các số chính phương: ");
-                for (int num : numbers) {
-                    if (isPerfectSquare(num)) {
-                        result.append(num).append(" ");
-                        //Toast.makeText(PerfectSquareActivity.this, num + " là số chính phương", Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-                // Hiển thị kết quả trong TextView
-                textView.setText(result.toString());
+                // Hiển thị chuỗi đảo ngược trong TextView
+                textView.setText("Chuỗi đảo ngược: " + reversedString);
             }
         });
-    }
-
-    // Phương thức kiểm tra số chính phương
-    private boolean isPerfectSquare(int num) {
-        double sqrt = Math.sqrt(num);
-        return sqrt == (int) sqrt;
     }
 }
